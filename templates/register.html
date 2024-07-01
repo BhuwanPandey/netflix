@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'register.css' %} ">
+{% endblock %}
+
+{% block content %}
+<div class="register">
+<div class="top">
+    <div class="wrapper">
+    <img
+        class="logo"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
+        alt=""
+    />
+    <a href="/login" class="loginButton" >Sign In
+    </a>
+    </div>
+</div>
+<div class="container">
+    <h1>Unlimited movies, TV shows, and more.</h1>
+    <h2>Watch anywhere. Cancel anytime.</h2>
+    <p>
+    Ready to watch? Enter your email to create or restart your membership.
+    </p>
+    {% if error %}
+        <span style="color:red;font-size: medium; font-weight: 700;">
+            {{error}}
+        </span>
+    {% endif %}
+    <form class="input" method="post">
+        {% csrf_token %}
+        {% if not email %}
+            <input type="email" placeholder="email address" name="email" required/>
+            <button class="registerButton" >
+            Get Started
+            </button>
+        {% else %}
+            <input type="username" placeholder="username" name="username" required/>
+            <input type="password" placeholder="password" name="password" required/>
+            <button class="registerButton" >
+                Start
+            </button>
+        {% endif %}
+    </form>
+</div>
+</div>
+
+{% endblock %}

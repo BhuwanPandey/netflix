@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'login.css' %} ">
+{% endblock %}
+
+{% block content %}
+
+<div class="login">
+    <div class="top">
+      <div class="wrapper">
+        <img
+          class="logo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="container">
+      <form method="post">
+        {% csrf_token %}
+        <h1>Sign In</h1>
+        {% if error %}
+          <span style="color:red;font-size: medium; font-weight: 700;">
+              {{error}}
+          </span>
+      {% endif %}
+        <input type="username" placeholder="Email or username" required name="username_email"/>
+        <input type="password" placeholder="Password" name="password" required/>
+        <button class="loginButton">Sign In</button>
+        <span>
+          New to Netflix? <a href="/register"><b>Sign up now.</b></a>
+        </span>
+        <small>
+          This page is protected by Google reCAPTCHA to ensure you're not a
+          bot. <b>Learn more</b>.
+        </small>
+      </form>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

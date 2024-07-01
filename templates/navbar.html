@@ -1,0 +1,38 @@
+
+<div class="navbar">
+    <div class="container">
+        <div class="left">
+            <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
+            alt=""
+            />
+            <span>Home</span>
+            <span>Movies</span>
+            <span>New and Popular</span>
+            <span>My List</span>
+        </div>
+        <div class="right">
+            <img
+                src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                alt=""
+                onclick="toggleMenu()"
+            />
+        <div class="profile" id="uProfile">
+            <div class="options">
+                <div class="user-info">
+                        <img
+                            src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                            alt=""
+                        />
+                        <span class="username">
+                            {{request.user.username}}
+                        </span>
+                </div>
+                <div class="logout" id="logout">
+                        Logout
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'navbar.css' %} ">
+{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block content %}
+    <div class="main-content">
+        <pre style="font-size: 25px;">
+            Hello {{request.user.username}} ! 🙂🙂🙂
+            welcome to Netflix site
+            Work under construction...
+        </pre>
+    </div> 
+
+{% endblock %}
+
+{% block jsstyle %}
+    <script src="{% static 'logout.js' %}"></script>
+{% endblock %}
