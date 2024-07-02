@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>Page Not Found</title>
+{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static '404.css' %} ">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Oops! Page Not Found</h1>
+        <p>The page you're looking for doesn't exist. Let's get you back on track:</p>
+        <a href="/" style="text-decoration: none; color: #ff5733;">Go to Homepage</a>
+    </div>
+{% endblock %}
+

@@ -4,6 +4,9 @@ from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 from django.contrib.auth import logout as auth_logout
 
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
+
 def home(request):
     if request.user.is_authenticated:
         return render(request,"home.html")

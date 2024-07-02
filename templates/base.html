@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix</title>
+    {% block title %}
+        <title>Netflix</title>
+    {% endblock %}
     <link rel="stylesheet" href="{% static 'main.css' %} ">
     {% block style %}{% endblock %}
 </head>
