@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>Netflix:watch</title>
+{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'watch.css' %} ">
+{% endblock %}
+
+{% block content %}
+<div class="watch">
+    <div class="back" onclick="location.href='/'">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      Home
+    </div>
+    {% if movie.trailer %}
+    <video
+      class="video"
+      autoplay
+      progress
+      controls
+      src="{{movie.trailer.url}}"
+    ></video>
+    {% else %}
+<div class="videoError">
+  <span>
+    Video Not Available
+  </span>
+</div>
+
+    {% endif %}
+  </div>
+
+{% endblock %}

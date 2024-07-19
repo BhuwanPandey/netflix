@@ -1,0 +1,21 @@
+<div class="list">
+    <span class="listTitle">{{movielist.title}}</span>
+
+    <div class="wrapper {{unique_id}}" >
+        <!-- Left Arrow -->
+        <span class="sliderArrow left">
+            <i class='fa fa-angle-left ' style='font-size:60px;color:white' onclick="handleClick('{{unique_id}}','left',)"></i>
+        </span>
+
+        <div class="container" data-content-id="{{ slider }}">
+            {% for movie in movielist.content.all %}
+                {% include "listitem.html" with index=forloop.counter0 movie=movie %}
+            {% endfor %}
+            
+        </div>
+        <!-- Right Arrow -->
+        <span class="sliderArrow right" >
+            <i class='fa fa-angle-right ' style='font-size:60px;color:white' onclick="handleClick('{{unique_id}}','right')"></i>
+        </span>
+    </div>
+</div>

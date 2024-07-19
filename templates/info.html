@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'navbar.css' %} ">
+    <link rel="stylesheet" href="{% static 'info.css' %} ">
+{% endblock %}
+
+{% block navbar %}
+{% include "navbar.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="info">
+    <div class="left-section">
+        <img class="movie-image" src="{{movie.image_thumbnail.url}}" alt="">
+        <button>Watch a trailer</button>
+    </div>
+    <div class="right-section">
+        <div class="movie-detail">
+            <div class="movie-title">
+                {{movie.title}}
+            </div>
+            <div class="movie-rating">
+                6.5/10
+            </div>
+            <div class="movie-genre">
+                Genre: Action,Triller
+            </div>
+            <div class="movie-desc">
+                {{movie.desc}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

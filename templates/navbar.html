@@ -6,10 +6,10 @@
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
             alt=""
             />
-            <span>Home</span>
-            <span>Movies</span>
-            <span>New and Popular</span>
-            <span>My List</span>
+            <span><a href="/">Home</a></span>
+            <span><a href="{% url 'name' 'movies' %}">Movies</a></span>
+            <span><a href="{% url 'name' 'series' %}">Series</a></span>
+            <span><a href="#">New and Popular</a></span>
         </div>
         <div class="right">
             <img

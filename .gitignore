@@ -136,3 +136,10 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+
+
+movies/images
+movies/trailer
+movies/videos
+users/profile
+CACHE/

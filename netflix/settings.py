@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users'
+    'imagekit',
+    'users',
+    'movies',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,4 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
+APPEND_SLASH=True

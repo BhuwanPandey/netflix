@@ -1,0 +1,27 @@
+<div class="listItem" data-content-id="{{ index }}" onclick="action('{{movie.id}}','info')">
+      <img
+        src="{{movie.image_thumbnail.url}}"
+        alt=""
+      />
+      {% if movie.trailer %}
+        <video src="{{ movie.trailer.url|escape }}" controls autoplay muted></video>
+      {% endif %}
+      
+        <div class="itemInfo">
+          <div class="icons">
+            <i class="fa fa-play-circle icon" aria-hidden="true"></i>
+            <i class="fa fa-plus-circle icon" aria-hidden="true"></i>
+            <i class="fa fa-thumbs-up icon" aria-hidden="true"></i>
+            <i class="fa fa-thumbs-down icon" aria-hidden="true"></i>
+
+          </div>
+          <div class="itemInfoTop">
+            <span class="imdb">IMDB: 8</span>
+            <span>Published At: 1999</span>
+          </div>
+          <div class="desc">
+            {{movie.description|truncatewords:20}}
+          </div>
+          <div class="genre">{{movie.genre}}</div>
+        </div>
+</div>

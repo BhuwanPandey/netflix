@@ -1,0 +1,46 @@
+<div class="featured">
+      <div class="category">
+        <span>{{name|title}}</span>
+        <!-- {% if genre %}
+        <select name="genre" id="genre">
+          <option>Genre</option>
+          <option value="adventure">Adventure</option>
+          <option value="comedy">Comedy</option>
+          <option value="crime">Crime</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="historical">Historical</option>
+          <option value="horror">Horror</option>
+          <option value="romance">Romance</option>
+          <option value="sci-fi">Sci-fi</option>
+          <option value="thriller">Thriller</option>
+          <option value="western">Western</option>
+          <option value="animation">Animation</option>
+          <option value="drama">Drama</option>
+          <option value="documentary">Documentary</option>
+        </select>
+        {% endif %} -->
+      </div>
+      <img 
+        src="{{movie.image.url}}" 
+        alt="" 
+      />
+      <div class="info">
+          <img 
+            src="{{movie.image.url}}"
+            alt="" 
+          />
+          <span class="desc">
+            {{movie.description|truncatewords:50}}
+          </span>
+          <div class="buttons" >
+            <button class="play" onclick="action('{{movie.id}}','watch')">
+              <i class="fa fa-play" aria-hidden="true"></i>
+              <span>Play</span>
+            </button>
+            <button class="more" onclick="action('{{movie.id}}','info')">
+              <i class="fa fa-info-circle" aria-hidden="true"></i>
+              <span>Info</span>
+            </button>
+      </div>
+      </div>
+  </div>

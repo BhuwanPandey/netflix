@@ -2,6 +2,9 @@
 {% load static %}
 {% block style %}
     <link rel="stylesheet" href="{% static 'navbar.css' %} ">
+    <link rel="stylesheet" href="{% static 'featured.css' %} ">
+    <link rel="stylesheet" href="{% static 'list.css' %} ">
+    <link rel="stylesheet" href="{% static 'listitem.css' %} ">
 {% endblock %}
 
 {% block navbar %}
@@ -9,16 +12,52 @@
 {% endblock %}
 
 {% block content %}
-    <div class="main-content">
-        <pre style="font-size: 25px;">
-            Hello {{request.user.username}} ! 🙂🙂🙂
-            welcome to Netflix site
-            Work under construction...
-        </pre>
-    </div> 
+    {% include "featured.html" with name=title movie=random_movie genre=genre %}
+
+    {% for movielist in movieslists %}
+        {% include "list.html" with unique_id=forloop.counter slider=0  movielist=movielist %}
+    {% endfor %}
 
 {% endblock %}
 
 {% block jsstyle %}
     <script src="{% static 'logout.js' %}"></script>
+    <script>
+        function action(movie_id,action){
+            location.href = `/${action}/${movie_id}/`
+        }
+
+        function handleClick(element,direction){
+            const container = document.querySelector(`.wrapper.${element} .container`);
+            const distance = container.getBoundingClientRect().x - 50;
+            let slideNumber = parseInt(container.dataset.contentId);
+            if(direction == "left" && slideNumber > 0){
+                slideNumber-=1
+                container.style.transform = `translateX(${230 + distance}px)`;
+            }
+            if(direction == "right" && slideNumber < 5){
+                slideNumber+=1
+                container.previousElementSibling.style.visibility = "visible";
+                container.style.transform = `translateX(${-230 + distance}px)`;
+            }
+            container.dataset.contentId = slideNumber;
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const listItems = document.querySelectorAll(".listItem");
+
+            listItems.forEach((item, row) => {
+                let index = parseInt(item.dataset.contentId);
+                let left = '';
+                item.addEventListener("mouseover", function() {
+                    item.style.left = `${index * 225-50 + index*2.5}px`;
+                });
+
+                item.addEventListener("mouseout", function() {
+                    item.style.left = '';
+                });
+
+            });
+        });
+    </script>
 {% endblock %}

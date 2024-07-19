@@ -32,9 +32,11 @@
 
 .left span{
     margin-right: 20px;
-    cursor: pointer;
 }
-
+.left span a{
+    color: white;
+    text-decoration: none;
+}
 .container .right {
     display: flex;
     align-items: center;

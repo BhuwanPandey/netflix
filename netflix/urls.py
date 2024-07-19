@@ -22,7 +22,7 @@ from django.conf import settings
 from django.http import FileResponse, HttpRequest, HttpResponse
 from django.views.decorators.cache import cache_control
 from django.views.decorators.http import require_GET
-
+from django.conf.urls.static import static
 
 @require_GET
 @cache_control(max_age=60 * 60 * 24, immutable=True, public=True)  # one day
@@ -37,5 +37,10 @@ handler404 = 'users.views.custom_404'
 urlpatterns = [
     path("favicon.ico", favicon),
     path(f'{admin_name}/', admin.site.urls),
-    path("",include("users.urls"))
+    path("",include("users.urls")),
+    path("",include("movies.urls")),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
