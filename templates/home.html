@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load custom_filters %}
 {% block style %}
     <link rel="stylesheet" href="{% static 'navbar.css' %} ">
     <link rel="stylesheet" href="{% static 'featured.css' %} ">
@@ -15,7 +16,7 @@
     {% include "featured.html" with name=title movie=random_movie genre=genre %}
 
     {% for movielist in movieslists %}
-        {% include "list.html" with unique_id=forloop.counter slider=0  movielist=movielist %}
+        {% include "list.html" with unique_id=forloop.counter|num_to_word slider=0   movielist=movielist %}
     {% endfor %}
 
 {% endblock %}
@@ -23,19 +24,25 @@
 {% block jsstyle %}
     <script src="{% static 'logout.js' %}"></script>
     <script>
+        function profileData(username){
+            location.href = `{% url 'profile' %}`;
+        }
         function action(movie_id,action){
             location.href = `/${action}/${movie_id}/`
         }
 
         function handleClick(element,direction){
             const container = document.querySelector(`.wrapper.${element} .container`);
+            console.log(container.getBoundingClientRect().x)
             const distance = container.getBoundingClientRect().x - 50;
             let slideNumber = parseInt(container.dataset.contentId);
+            let totalMovie = parseInt(container.dataset.contentTotalmovie);
+
             if(direction == "left" && slideNumber > 0){
                 slideNumber-=1
                 container.style.transform = `translateX(${230 + distance}px)`;
             }
-            if(direction == "right" && slideNumber < 5){
+            if(direction == "right" && slideNumber < 5 && totalMovie > 6){
                 slideNumber+=1
                 container.previousElementSibling.style.visibility = "visible";
                 container.style.transform = `translateX(${-230 + distance}px)`;
@@ -59,5 +66,14 @@
 
             });
         });
+        
+        window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY >= 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
     </script>
 {% endblock %}

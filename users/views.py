@@ -3,10 +3,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 from django.contrib.auth import logout as auth_logout
+from .forms import UserUpdateForm,ProfileUpdateForm
+from django.contrib import messages
 
 def custom_404(request, exception):
     return render(request, '404.html', status=404)
-
 
 def register(request):
     if request.user.is_authenticated:
@@ -56,7 +57,6 @@ def loginn(request):
             user = authenticate(
                 request,**credentials
             )
-            print(user,"user")
             if user is not None:
                 if user.is_active:
                     login(request, user)
@@ -68,9 +68,62 @@ def loginn(request):
             
     return render(request,"login.html",{"error":error})
 
-
 def logout(request):
     if request.method == "POST" and request.user.is_authenticated:
         auth_logout(request)
         message = "success"
         return JsonResponse({"res":message})
+
+def profile(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(
+            request.POST,
+            request.FILES,
+            instance=request.user.profile
+        )
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, 'Your account has been updated!')
+            return redirect('profile')
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+    u_form = UserUpdateForm(instance=request.user)
+    p_form = ProfileUpdateForm(instance=request.user.profile)
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+    return render(request,"profile.html",context)
+
+# @login_required
+# def profile(request):
+    # if request.method == 'POST':
+    #     u_form = UserUpdateForm(request.POST, instance=request.user)
+    #     p_form = ProfileUpdateForm(request.POST,
+    #                                request.FILES,
+    #                                instance=request.user.profile)
+    #     if u_form.is_valid() and p_form.is_valid():
+    #         u_form.save()
+    #         p_form.save()
+    #         messages.success(request, f'Your account has been updated!')
+    #         return redirect('profile')
+
+    # else:
+    #     u_form = UserUpdateForm(instance=request.user)
+    #     p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    # context = {
+    #     'u_form': u_form,
+    #     'p_form': p_form
+    # }
+
+#     return render(request, 'users/profile.html', context)

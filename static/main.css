@@ -1,7 +1,9 @@
-.home{
-    background-color: #0b0b0b;
+body{
     margin:0;
     box-sizing: border-box;
     padding: 0;
+}
+.home{
+    background-color: #0b0b0b;
     overflow: hidden;
 }

@@ -31,7 +31,13 @@
       -webkit-box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.07);
       box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.07);
       border-radius: 5px;
+      transition: transform .3s;
+    /* -ms-transform: scale(1.4);
+    -webkit-transform: scale(1.4);   */
+    /* transform: scale(1.1); */
+
 }
+
 .listItem:hover img{
   height: 140px;
 

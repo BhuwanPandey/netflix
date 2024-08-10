@@ -29,6 +29,7 @@ class Movies(models.Model):
     )
     trailer = models.FileField(upload_to="movies/trailer",blank=True, null=True)
     published_date = models.DateField(null=True,blank=True)
+    imdb_rating = models.FloatField(default=0)
     genre = MultiSelectField(choices=genre)
     isseries = models.BooleanField(blank=False)
 

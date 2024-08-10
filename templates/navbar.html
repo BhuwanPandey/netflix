@@ -13,19 +13,19 @@
         </div>
         <div class="right">
             <img
-                src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                src="{% if user.profile.photo %} {{user.profile.photo.url}} {%else %} https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png {%endif%}"
                 alt=""
                 onclick="toggleMenu()"
             />
         <div class="profile" id="uProfile">
             <div class="options">
-                <div class="user-info">
+                <div class="user-info" onclick="profileData()">
                         <img
-                            src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                            src="{{user.profile.photo.url}}"
                             alt=""
                         />
                         <span class="username">
-                            {{request.user.username}}
+                            {{user.username}}
                         </span>
                 </div>
                 <div class="logout" id="logout">

@@ -12,6 +12,7 @@
     color: white;
     cursor: pointer;
     z-index: 2;
+    font-size: 20px;
 }
 
 .watch .video {

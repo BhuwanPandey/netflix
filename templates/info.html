@@ -13,7 +13,8 @@
 <div class="info">
     <div class="left-section">
         <img class="movie-image" src="{{movie.image_thumbnail.url}}" alt="">
-        <button>Watch a trailer</button>
+        <button onclick="watchTrailer('{{movie.id}}')">Watch a trailer</button>
+
     </div>
     <div class="right-section">
         <div class="movie-detail">
@@ -27,10 +28,16 @@
                 Genre: Action,Triller
             </div>
             <div class="movie-desc">
-                {{movie.desc}}
+                {{movie.description}}
             </div>
         </div>
     </div>
 </div>
+<script>
+    function watchTrailer(movieId) {
+        const url = `{% url 'watch' 0 %}`.replace('0', movieId);
+        window.location.href = url;
+    }
+</script>
 {% endblock %}
 

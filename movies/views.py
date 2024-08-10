@@ -1,12 +1,12 @@
 import random
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from movies.models import MovieList,Movies
-from django.db.models import Prefetch
+from django.db.models import Prefetch,Count
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 
 def common(request):
-    queryset =  MovieList.objects.prefetch_related(
+    queryset =  MovieList.objects.annotate(total_movies=Count('content')).prefetch_related(
         Prefetch('content', queryset=Movies.objects.all())
     )
     new_qs = list(queryset)
@@ -21,11 +21,11 @@ def common(request):
     return context
 
 def home(request):
-    # if request.user.is_authenticated:
-    context = common(request)
-    return render(request,"home.html",context)
-    # else:
-    #     return redirect("/register")
+    if request.user.is_authenticated:
+        context = common(request)
+        return render(request,"home.html",context)
+    else:
+        return redirect("/register")
 
 def watch(request,id):
     movie = get_object_or_404(Movies,id=id)
@@ -46,19 +46,3 @@ def name(request,name):
     context["title"] = data
     context["genre"] = True
     return render(request,"home.html",context)
-
-def moviedetail(request,name,id):
-    context = dict()
-    if name == "movies":
-        data = "movies"
-        val = False
-    elif name == "series":
-        data = "series"
-        val = True
-    else:
-        raise Http404
-    if id:
-        context["qs"] = Movies.objects.filter(id=id,isseries=val)
-    context["title"] = data
-    context["genre"] = True
-    return render(request,"moviedetail.html",context)

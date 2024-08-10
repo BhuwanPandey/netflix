@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from PIL import Image
 
 class Profile(models.Model):
     user = models.OneToOneField(
@@ -7,10 +8,22 @@ class Profile(models.Model):
         on_delete=models.CASCADE
     )
     photo = models.ImageField(
+        default="users/profile/default.jpg",
         upload_to= "users/profile",
         blank=True
     )
 
     def __str__(self):
         return f'Profile of {self.user.username}'
+    
+    def save(self,*args, **kwargs):
+        if self.photo.path:
+            img = Image.open(self.photo.path)
+            if img.height > 300 or img.width > 300:
+                output_size = (300, 300)
+                img.thumbnail(output_size)
+                img.save(self.photo.path)
+        super(Profile, self).save(*args, **kwargs)
+        
+
 

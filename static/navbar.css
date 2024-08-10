@@ -6,9 +6,10 @@
     top: 0;
     z-index: 999;
     background: #080808;
-    /* background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.5) 50%); */
 }
-
+.navbar.scrolled {
+    background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.5) 50%);
+}
 .main-content{
     margin-top: 70px;
 }

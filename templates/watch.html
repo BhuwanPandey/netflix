@@ -9,9 +9,9 @@
 
 {% block content %}
 <div class="watch">
-    <div class="back" onclick="location.href='/'">
+    <div class="back" onclick="window.history.back()">
       <i class="fa fa-arrow-left" aria-hidden="true"></i>
-      Home
+      <span style="margin-left: 5px;">Back</span>
     </div>
     {% if movie.trailer %}
     <video

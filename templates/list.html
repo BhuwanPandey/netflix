@@ -7,7 +7,7 @@
             <i class='fa fa-angle-left ' style='font-size:60px;color:white' onclick="handleClick('{{unique_id}}','left',)"></i>
         </span>
 
-        <div class="container" data-content-id="{{ slider }}">
+        <div class="container" data-content-id="{{ slider }}" data-content-totalmovie="{{ movielist.total_movies}}">
             {% for movie in movielist.content.all %}
                 {% include "listitem.html" with index=forloop.counter0 movie=movie %}
             {% endfor %}
