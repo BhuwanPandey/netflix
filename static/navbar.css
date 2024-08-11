@@ -1,103 +1,102 @@
 .navbar {
-    width: 100%;
-    color: white;
-    font-size: 14px;
-    position: fixed;
-    top: 0;
-    z-index: 999;
-    background: #080808;
+  width: 100%;
+  color: white;
+  font-size: 14px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  background: #080808;
 }
 .navbar.scrolled {
-    background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.5) 50%);
+  background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.5) 50%);
 }
-.main-content{
-    margin-top: 70px;
+.main-content {
+  margin-top: 70px;
 }
 .navbar .container {
-    padding: 0px 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
+  padding: 0px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
 }
 
-.container .left{
-    display: flex;
-    align-items: center;
+.container .left {
+  display: flex;
+  align-items: center;
 }
 
-.left img{
-    height: 25px;
-    margin-right: 40px;
+.left img {
+  height: 25px;
+  margin-right: 40px;
 }
 
-.left span{
-    margin-right: 20px;
+.left span {
+  margin-right: 20px;
 }
-.left span a{
-    color: white;
-    text-decoration: none;
+.left span a {
+  color: white;
+  text-decoration: none;
 }
 .container .right {
-    display: flex;
-    align-items: center;
-    position: relative;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .right .icon {
-    margin: 0px 15px;
-    cursor: pointer;
+  margin: 0px 15px;
+  cursor: pointer;
 }
 
 .right img {
-    width: 30px;
-    height: 30px;
-    border-radius: 5px;
-    object-fit: cover;
-    cursor: pointer;
-        }
-
-.profile{
-    position: absolute;
-    top:100%;
-    right:10%;
-    width: 320px;
-    /* display: none; */
-    max-height: 0px;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  object-fit: cover;
+  cursor: pointer;
 }
 
-.profile.open-menu{
-    max-height: 400px;
+.profile {
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  width: 320px;
+  /* display: none; */
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.profile.open-menu {
+  max-height: 400px;
 }
 
 .profile .options {
-    background-color: #080808;;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
+  background-color: #080808;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
-.options .user-info{
-    display: flex;
-    align-items: center;
+.options .user-info {
+  display: flex;
+  align-items: center;
 }
-.options .user-info .username{
-    padding-left: 5px;
+.options .user-info .username {
+  padding-left: 5px;
 }
 .options div {
-    padding: 10px;
-    cursor: pointer;
-    color:white;
-    font-size: 15px;
-    font-weight: 700;
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .options div:hover {
-    background-color: white;
-    color: #080808;
+  background-color: white;
+  color: #080808;
 }
-

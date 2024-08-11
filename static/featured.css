@@ -1,106 +1,102 @@
 .featured {
-    height: 90vh;
-    position: relative;
-      overflow: hidden; /* Ensure the content doesn't overflow */
-
-   
+  height: 90vh;
+  position: relative;
+  overflow: hidden; /* Ensure the content doesn't overflow */
 }
 .featured .category {
-      position: absolute;
-      top: 80px;
-      left: 50px;
-      font-size: 30px;
-      font-weight: 500;
-      color: white;
-      display: flex;
-      align-items: center;
+  position: absolute;
+  top: 80px;
+  left: 50px;
+  font-size: 30px;
+  font-weight: 500;
+  color: white;
+  display: flex;
+  align-items: center;
 }
 .category select {
-        cursor: pointer;
-        background-color: #0b0b0b;
-        border: 1px solid white;
-        color: white;
-        margin-left: 20px;
-        padding: 5px;
-      }
-  
+  cursor: pointer;
+  background-color: #0b0b0b;
+  border: 1px solid white;
+  color: white;
+  margin-left: 20px;
+  padding: 5px;
+}
 
 .featured img {
-width: 100%;
-height: 100%;
-object-fit: cover; /* Ensure the image covers the container */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the container */
 }
 
 .featured::before {
-content: "";
-position: absolute;
-top: 0;
-right: 0;
-bottom: 0;
-left: 0;
-background: linear-gradient(
-      to left,
-      rgba(0, 0, 0, 0) 0%,
-      rgb(20 19 19 / 70%) 100%
-);
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0) 0%,
+    rgb(20 19 19 / 70%) 100%
+  );
 }
 
 .featured .info {
-      width: 35%;
-      position: absolute;
-      left: 50px;
-      bottom: 100px;
-      color: white;
-      display: flex;
-      flex-direction: column;
+  width: 35%;
+  position: absolute;
+  left: 50px;
+  bottom: 100px;
+  color: white;
+  display: flex;
+  flex-direction: column;
 }
 .info img {
-        width: 400px;
-      }
-  
+  width: 400px;
+}
+
 .info .desc {
-        margin: 20px 0px;
-      }
-  
+  margin: 20px 0px;
+}
+
 .info .buttons {
-        display: flex;
+  display: flex;
 }
 .buttons button {
-          padding: 10px 20px;
-          border: none;
-          border-radius: 5px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 18px;
-          font-weight: 500;
-          margin-right: 10px;
-          cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 500;
+  margin-right: 10px;
+  cursor: pointer;
 }
 button .play {
-            background-color: white;
-            color: #0b0b0b;
-          }
-  
+  background-color: white;
+  color: #0b0b0b;
+}
+
 button .more {
-            background-color: gray;
-            color: white;
-          }
-  
+  background-color: gray;
+  color: white;
+}
+
 button span {
-            margin-left: 5px;
-          }
+  margin-left: 5px;
+}
 
 .play:hover {
-      background-color: #0b0b0b;
-      color: white;
+  background-color: #0b0b0b;
+  color: white;
 }
 .more:hover {
-      background-color: #0b0b0b;
-      color: white;
+  background-color: #0b0b0b;
+  color: white;
 }
 /* button:hover span{
       background-color: #0b0b0b;
       color: white;
 } */
-
