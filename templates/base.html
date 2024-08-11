@@ -21,6 +21,14 @@
 {% block jsstyle %}
 
 {% endblock %}
-
+<script src="{% static 'logout.js' %}"></script>
+<script>
+    function profileData(username){
+            location.href = `{% url 'profile' %}`;
+        }
+        function action(movie_id,action){
+            location.href = `/${action}/${movie_id}/`
+        }
+</script>
 </html>
 

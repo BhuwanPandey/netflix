@@ -16,8 +16,8 @@
 
           </div>
           <div class="itemInfoTop">
-            <span class="imdb">IMDB: 8</span>
-            <span>Published At: 1999</span>
+            <span class="imdb">IMDB: {{movie.imdb_rating}}/10</span>
+            <span>Published At: {{movie.published_date}}</span>
           </div>
           <div class="desc">
             {{movie.description|truncatewords:20}}

@@ -22,10 +22,15 @@
                 {{movie.title}}
             </div>
             <div class="movie-rating">
-                6.5/10
+                <span class="start-icon">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                </span>
+                {{movie.imdb_rating}}/10
             </div>
-            <div class="movie-genre">
-                Genre: Action,Triller
+            <div class="movie-genre">Ac
+                Genre: {{movie.genre}}
             </div>
             <div class="movie-desc">
                 {{movie.description}}

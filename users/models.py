@@ -9,8 +9,7 @@ class Profile(models.Model):
     )
     photo = models.ImageField(
         default="users/profile/default.jpg",
-        upload_to= "users/profile",
-        blank=True
+        upload_to= "users/profile"
     )
 
     def __str__(self):

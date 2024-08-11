@@ -55,7 +55,12 @@
     font-size: 18px;
     font-weight: 600;
 }
-
+.star-icon{
+    margin-left: 5px;
+}
+.fa-star,.fa-star-half-o{
+    color: yellow;
+}
 .movie-desc {
     font-size: 18px;
     text-align: justify;
