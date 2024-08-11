@@ -1,3 +1,4 @@
+import os
 from django.contrib import admin
 from django.urls import path,include
 
@@ -16,9 +17,10 @@ def favicon(request: HttpRequest) -> HttpResponse:
 
 # this work on debug = false
 handler404 = 'users.views.custom_404'
+admin_site = os.getenv("admin_site", "admin")
 urlpatterns = [
     path("favicon.ico", favicon),
-    path('admin/', admin.site.urls),
+    path(f'{admin_site}/', admin.site.urls),
     path("",include("users.urls")),
     path("",include("movies.urls")),
     
