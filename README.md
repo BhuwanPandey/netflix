@@ -17,15 +17,15 @@ https://github.com/BhuwanPandey/netflix.git
 ```
 cd netflix
 ```
-3. create a virtual env
+3. Create a virtual env
 ```
 python -m venv env
 ```
-4. activate env
+4. Activate env
 ```
 env\scripts\activate
 ```
-5. Open CMD & Install Dependancies
+5. Install Dependancies
 ```
 pip install -r requirements.txt
 ```
