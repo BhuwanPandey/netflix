@@ -1,9 +1,10 @@
 import random
-from django.shortcuts import render,redirect
+from django.shortcuts import render
 from movies.models import MovieList,Movies
 from django.db.models import Prefetch,Count
 from django.http import Http404
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 def common(request):
     queryset =  MovieList.objects.annotate(total_movies=Count('content')).prefetch_related(
@@ -20,21 +21,22 @@ def common(request):
     }
     return context
 
+@login_required(login_url='/login/')
 def home(request):
-    if request.user.is_authenticated:
-        context = common(request)
-        return render(request,"home.html",context)
-    else:
-        return redirect("/register")
+    context = common(request)
+    return render(request,"home.html",context)
 
+@login_required(login_url='/login/')
 def watch(request,id):
     movie = get_object_or_404(Movies,id=id)
     return render(request,"watch.html",{"movie":movie})
 
+@login_required(login_url='/login/')
 def info(request,id):
     movie = get_object_or_404(Movies,id=id)
     return render(request,"info.html",{"movie":movie})
 
+@login_required(login_url='/login/')
 def name(request,name):
     if name == "movies":
         data = "movies"

@@ -13,7 +13,7 @@
         </div>
         <div class="right">
             <img
-                src="{% if user.profile.photo %} {{user.profile.photo.url}} {%else %} https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png {%endif%}"
+                src="{{user.profile.photo.url}} "
                 alt=""
                 onclick="toggleMenu()"
             />
