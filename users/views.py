@@ -39,7 +39,7 @@ def register(request):
                         password=password
                     )
                     del request.session["email"]
-
+                    return redirect("/login/")
         else:
             error = "User with email already Exists !"
     return render(request,"register.html",{"email":email,"error":error})
