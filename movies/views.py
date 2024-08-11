@@ -1,5 +1,5 @@
 import random
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from movies.models import MovieList,Movies
 from django.db.models import Prefetch,Count
 from django.http import Http404
@@ -36,7 +36,6 @@ def info(request,id):
     movie = get_object_or_404(Movies,id=id)
     return render(request,"info.html",{"movie":movie})
 
-@login_required(login_url='/login/')
 def name(request,name):
     if name == "movies":
         data = "movies"
@@ -44,6 +43,8 @@ def name(request,name):
         data = "series"
     else:
         raise Http404
+    if not request.user.is_authenticated:
+        return redirect("/login/")
     context = common(request)
     context["title"] = data
     context["genre"] = True
