@@ -41,6 +41,8 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
-
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Please star ✨ repository if you like it. Thank you!
+
+
