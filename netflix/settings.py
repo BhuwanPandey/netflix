@@ -145,3 +145,4 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
+IMAGEKIT_CACHEFILE_DIR="cache"

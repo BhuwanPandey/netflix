@@ -8,7 +8,7 @@ class Profile(models.Model):
         on_delete=models.CASCADE
     )
     photo = models.ImageField(
-        default="users/profile/default.jpg",
+        default="profile/default.jpg",
         upload_to= "users/profile"
     )
 
